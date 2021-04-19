@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titulo %}
+    {{ post.titulo }}
+{% endblock %}
+
+{% block titulo_principal %}
+    <h1>{{ post.categoria }}</h1>
+    <p>{{ post.descricao }}</p>
+    <p>Escrito por: {{ post.autor }}</p>
+{% endblock %}
+
+{% block image %}
+    {{ post.imagem}}
+{% endblock %}
+
+{% block conteudo %}
+    <strong><h1>{{ post.titulo }}</h1> | {{ post.autor }} | {{ post.data_criacao }}</strong>
+    <p>{{ post.descricao }}</p>
+    {{ post.conteudo | safe }}
+{% endblock %}

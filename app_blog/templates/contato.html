@@ -1,0 +1,110 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titulo %}
+    Contato - DevStart
+{% endblock %}
+
+{% block titulo_principal %}
+    <h1>Contato DevStart</h1>
+{% endblock %}
+
+
+{% block image %}
+    {% static '../static/img/contact-bg.jpg' %}
+{% endblock %}
+
+{% block conteudo %}
+
+{% endblock %}
+
+{% block pager %}
+{% endblock %}
+
+{% block paginator %}
+{% endblock %}
+
+{% block busca %}
+{% endblock %}
+
+{% block form %}
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <form method="post" id="contato" autocomplete="off"
+                      action="#contato">
+                    {% csrf_token %}
+                    <div class="control-group">
+                        <div class="form-group">
+                            <input type="text" class="form-control"
+                                   placeholder="Nome" id="nome" name="nome"
+                                   required
+                                   data-error="Por favor, entre com seu nome.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group ">
+                            <input type="email" class="form-control"
+                                   placeholder="Email" id="email" name="email"
+                                   required
+                                   data-error="Por favor, entre com seu email.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group col-xs-12">
+
+                            <input type="tel" class="form-control"
+                                   placeholder="Telefone" id="telefone"
+                                   name="telefone" required
+                                   data-error="Por favor, entre com seu telefone.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group">
+                            <textarea rows="10" class="form-control"
+                                      placeholder="Mensagem" id="mensagem"
+                                      name="mensagem"
+                                      required
+                                      data-error="Por favor, escreva sua mensagem."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <button id="form-submit" type="submit"
+                            class="btn btn-primary">Enviar
+                    </button>
+                    <div id="msgSubmit"
+                         class="h3 text-center hidden">
+                        <div class="container">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+                                         role="alert">
+                                        <button type="button"
+                                                class="close"
+                                                data-dimiss="alert"
+                                                data-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        <strong>{{ message }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="clearfix">
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
